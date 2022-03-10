@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          安寧 <code>src/App.js</code> and save to reload.
+          한글로 변경해 보세요。 <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
