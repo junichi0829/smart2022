@@ -3,14 +3,24 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { useEffect } from 'react';
+import { getRandomInt } from '../Utils';
+import { useState } from 'react';
 
 function UserCard(props) {
-    const { userData, idx } = props; // 위 아래는 같은 코드
-    // const userData = props.userData;
-    // const idx = props.idx;
+    // const { userData } = props; // 위 아래는 같은 코드
+    const userData = props.userData;
+    const [fontColor, setFontColor] = useState(null);
+
+    useEffect(() => {
+        const changeFontColor = () => {
+            setFontColor(`rgb(${getRandomInt(0,255)},${getRandomInt(0.,255)},${getRandomInt(0,255)})`)
+        }
+        
+        setInterval(changeFontColor, 100);
+    }, [])
     
-    return <div key={idx}> 
-        <Card sx={{ maxWidth: 345 }}>
+    return <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
         <CardMedia
             component="img"
@@ -19,10 +29,10 @@ function UserCard(props) {
             alt="green iguana"
         />
         <CardContent>
-            <Typography gutterBottom variant="h4" component="div">
+            <Typography gutterBottom variant="h4" component="div" color={fontColor}>
             { userData.name }
             </Typography>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" color={fontColor}>
             { userData.jobTitle }
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -34,7 +44,6 @@ function UserCard(props) {
         </CardContent>
         </CardActionArea>
     </Card>
-  </div>;
 }
 
 export default UserCard;
