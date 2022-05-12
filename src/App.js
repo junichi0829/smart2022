@@ -16,6 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import TopBar from './components/TopBar';
 
 const userDatas = makeUserDatas(5000);
 
@@ -64,6 +65,7 @@ function App() {
         color: 'text.primary',
         p: 1,
       }}>
+        <TopBar />
         <Container maxWidth="lg">
           <FormControl>
           <InputLabel id="selected-city-label">도시</InputLabel>
